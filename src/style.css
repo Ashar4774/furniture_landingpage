@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply scroll-smooth; }
+  body { @apply bg-sand font-sans text-ink antialiased; }
+  ::selection { background: #c8f169; color: #111110; }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+  .btn-dark { @apply bg-ink text-sand hover:bg-black; }
+  .btn-lime { @apply bg-lime text-ink hover:bg-lime-dark; }
+  .btn-ghost { @apply border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-sand; }
+
+  /* firmness slider */
+  .slider { @apply h-2 w-full cursor-pointer appearance-none rounded-full outline-none; }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 30px; height: 30px; border-radius: 999px;
+    background: #c8f169; border: 5px solid #111110;
+    box-shadow: 0 0 0 2px #c8f169; transition: transform .2s;
+  }
+  .slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  .slider::-moz-range-thumb {
+    width: 20px; height: 20px; border-radius: 999px;
+    background: #c8f169; border: 5px solid #111110; box-shadow: 0 0 0 2px #c8f169;
+  }
+}
